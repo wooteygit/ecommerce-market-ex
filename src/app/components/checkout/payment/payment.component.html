@@ -1,0 +1,85 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <h6>Choose Payment Option</h6>
+            <ul class="list-unstyled mt-3">
+                <li class="pt-2 pb-2">
+                    <label class="form-inline pointer">
+                        <input class="form-control mr-2" name="payment_option" type="radio" value="1" [(ngModel)]="option">Credit or Debit Card
+                    </label>
+                </li>
+                <li class="pt-2 pb-2">
+                    <label class="form-inline pointer">
+                        <input class="form-control mr-2" name="payment_option" type="radio" value="2" [(ngModel)]="option">Cash on Delivery
+                    </label>
+                </li>
+                <li class="pt-2 pb-2">
+                    <label class="form-inline pointer">
+                        <input class="form-control mr-2" name="payment_option" type="radio" value="3" [(ngModel)]="option">Bank Transfer
+                    </label>
+                </li>
+            </ul>
+            <div *ngIf="option == 1" class="mt-3">
+                <h6>Payment Info</h6>
+                <form ngNoForm class="mt-3">
+                    <div class="form-group">
+                        <label for="txt-email">Card number</label>
+                        <input class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="txt-password">Card holder name</label>
+                        <input class="form-control" type="text">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Expire</label>
+                            <div class="d-flex">
+                                <input class="form-control" type="text">
+                                <div style="width: 25px"></div>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="txt-email">Security Code</label>
+                            <input class="form-control" type="text">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="pm-border p-3">
+                <h6>Order Summary</h6>
+                <table class="table mt-3">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Product</th>
+                            <th class="text-center" style="width: 50px">Qty</th>
+                            <th class="text-center" style="width: 200px">Total Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of cartService.products">
+                            <td class="align-middle">{{c.product.name}}</td>
+                            <td class="text-center align-middle">{{c.qty}}</td>
+                            <td class="text-center align-middle">฿ {{c.product.price * c.qty | number: '1.2-2'}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td class="text-center align-middle">
+                                <span class="text-black-secondary pr-3">Total:</span><span class="txt-5">฿ {{cartService.totalPrice | number: '1.2-2'}}</span>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d-flex m-3">
+    <button class="btn btn-link d-flex v-center" type="button" (click)="prev()"><i class="material-icons md-18 pr-2">navigate_before</i>Delivery Address</button>
+    <div class="flex"></div>
+    <button class="btn btn-success" type="button" (click)="complete()">Place Order</button>
+</div>

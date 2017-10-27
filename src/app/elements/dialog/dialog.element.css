@@ -1,0 +1,45 @@
+:host {
+    margin: 0;
+    position: relative;
+    border-style: none;
+    padding: 0;
+    color: #212121;
+}
+
+:host /deep/ dialog-title {
+    font-size: 1.5rem;
+}
+
+.dialog-overlay {
+    background-color: rgba(0, 0, 0, .38);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.dialog {
+    background-color: #fff;
+    max-width: 800px;
+    max-height: 480px;
+    width: 100%;
+    -webkit-box-shadow: 0 24px 38px 3px rgba(0, 0, 0, .14), 0 9px 46px 8px rgba(0, 0, 0, .12), 0 11px 15px 0 rgba(0, 0, 0, .2);
+    box-shadow: 0 24px 38px 3px rgba(0, 0, 0, .14), 0 9px 46px 8px rgba(0, 0, 0, .12), 0 11px 15px 0 rgba(0, 0, 0, .2);
+}
+
+.dialog-header {
+    padding: 1.25rem 1.5rem;
+}
+
+.dialog-body {
+    padding: 0 1.5rem;
+    position: relative;
+    overflow-y: auto;
+}
+
+.dialog-footer {
+    padding: .5rem .5rem;
+}

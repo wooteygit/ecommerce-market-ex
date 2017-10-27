@@ -1,0 +1,30 @@
+<div class="d-flex flex-row">
+    <div class="sidebar ml-3">
+        <div class="pm-light-bg">
+            <h6 class="p-2 mb-0">SUB CATEGORIES</h6>
+            <tree-menu [data]="category.sub_categories" [child]="child"></tree-menu>
+        </div>
+        <div *ngFor="let c of categoryFilters" class="pm-light-bg mt-3">
+            <h6 class="p-2 mb-0">{{c.name}}</h6>
+            <ul class="list-unstyled" *ngIf="c.filters.length">
+                <li class="pl-2" *ngFor="let f of c.filters">
+                    <label class="d-block pt-1 pb-1 pl-2 pr-2 form-inline"><input class="form-control mr-2" type="checkbox">{{f.name}}</label>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="w-100">
+        <div class="container">
+            <h4 class="mb-0">{{category.name}}</h4>
+            <div class="row p-2">
+                <div *ngFor="let p of products" class="p-2 col-md-6 col-lg-3">
+                    <div class="product-item p-2 pm-light-bg">
+                        <div class="pic mb-2"></div>
+                        <div class="name">{{p.name}}</div>
+                        <div class="price txt-red mt-2">฿{{p.price | number: '1.2-2' }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

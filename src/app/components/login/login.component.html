@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-5 pm-light-bg p-3">
+            <form ngNoForm>
+                <h4 class="pb-2 mb-3">Log in to {{appName}}</h4>
+                <div class="form-group">
+                    <label for="txt-email">Email</label>
+                    <input class="form-control" id="txt-email" type="email" [(ngModel)]="email">
+                </div>
+                <div class="form-group">
+                    <label for="txt-password">Password</label>
+                    <input class="form-control" id="txt-password" type="password" [(ngModel)]="password">
+                </div>
+                <div class="mt-2 mb-2 text-center">
+                    <button type="button" class="btn btn-primary" (click)="logIn()">Log In</button>
+                </div>
+                <div class="text-center mt-2 mb-2">
+                    <span class="pr-1">Not a member?</span>
+                    <a routerLink="/signup">Sign up now</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

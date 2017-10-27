@@ -1,0 +1,125 @@
+<div class="container mt-3">
+    <h4 class="mr-auto">Order {{order.no}}</h4>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container mt-3 p-3 pm-border">
+                <div class="row mb-2">
+                    <div class="col-md-4">
+                        <label class="mb-0">Order No:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div>{{order.no}}</div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">
+                        <label class="mb-0">Date:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div>{{order.order_date | date: 'dd/MM/yyyy HH:mm'}}</div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">
+                        <label class="mb-0">Status:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div>{{order.status.name}}</div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">
+                        <label class="mb-0">Summary:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div><a href="javascript:void(0)">{{order.total_qty}} items - ฿ {{order.total_price | number: '1.2-2'}}</a></div>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-4">
+                        <label class="mb-0">Payment Option:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div>{{order.payment.name}}</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="mb-0">Payment Status:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <div *ngIf="order.payment.complete">Paid</div>
+                        <div *ngIf="!order.payment.complete">Unpaid</div>
+                    </div>
+                </div>
+            </div>
+            <div class="container pm-border mt-3 pt-3 pb-3">
+                <h6 class="mb-3">Delivery Address</h6>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mb-1">{{order.delivery_address.first_name}} {{order.delivery_address.last_name}}</div>
+                        <div>{{order.delivery_address.full_address}}</div>
+                        <div class="mt-1">{{order.delivery_address.telephone}}</div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="container pm-border mt-3 pt-3 pb-3">
+                <h6 class="mb-3">Packages</h6>
+                <div class="row">
+                    <div class="col-md-12">
+                    </div>
+                </div>
+            </div> -->
+            <div class="container pm-border mt-3 pt-3 pb-3">
+                <h6 class="mb-3">Order Summary</h6>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 120px"></th>
+                                    <th class="text-center">Product</th>
+                                    <th class="text-center" style="width: 50px">Quantity</th>
+                                    <th class="text-center" style="width: 200px">Total Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let c of order.order_products">
+                                    <td class="text-center align-middle">
+                                        <div class="cart-pic">
+                                            <img class="mh-100 mw-100" [src]="config.FileUrl + c.product.main_picture">
+                                        </div>
+                                    </td>
+                                    <td class="align-middle"><a routerLink="/product/{{c.product.id}}">{{c.product.name}}</a></td>
+                                    <td class="text-center align-middle">{{c.qty}}</td>
+                                    <td class="text-center align-middle">฿ {{c.product.price * c.qty | number: '1.2-2'}}</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3"></td>
+                                    <td class="text-center align-middle">
+                                        <span class="text-black-secondary pr-3">Total:</span><span class="txt-5">฿ {{order.total_price | number: '1.2-2'}}</span>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <dialog>
+    <dialog-title>Title</dialog-title>
+    <dialog-body>
+        <p>Consequuntur suscipit exercitation per repellendus doloribus! Perspiciatis hymenaeos. Nostrud ducimus etiam perspiciatis incidunt montes per, parturient, a aut diam voluptas assumenda eum, rerum mollitia. Eget eros non distinctio molestie, qui,
+            nihil cupiditate soluta. Ipsam. Voluptate habitant morbi! Ab repellendus? Dignissimos do sequi, dignissimos enim neque, lacus, ut excepturi tempor nec? Aptent ex! Beatae sapien. Mollit pharetra hymenaeos, malesuada turpis sollicitudin. Harum
+            et eget similique eleifend excepteur penatibus mollis consequat. Platea, dolore risus? Tempor netus iste tristique? Eros numquam ridiculus dolorem porta. Ipsum odit aliquam pulvinar commodi nihil saepe quae repellat, eu orci expedita facere
+            interdum, quo, dolorem pellentesque, facilisis, laoreet.</p>
+    </dialog-body>
+    <dialog-footer>
+        <button type="button" class="btn btn-primary mr-2">OK</button>
+        <button type="button" class="btn btn-secondary">Cancel</button>
+    </dialog-footer>
+</dialog> -->

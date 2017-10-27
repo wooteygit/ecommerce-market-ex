@@ -1,0 +1,45 @@
+<div class="d-flex flex-row">
+    <div class="sidebar ml-3 hidden-sm">
+        <div class="pm-light-bg">
+            <h6 class="p-2 mb-0">CATEGORIES</h6>
+            <ul class="list-unstyled">
+                <li>
+                    <a class="d-block p-2" routerLink="category/category-1">Cateogory 1</a>
+                </li>
+                <li>
+                    <a class="d-block p-2" routerLink="category/category-2">Cateogory 2</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="w-100">
+        <div class="container">
+            <h4>NEW PRODUCTS</h4>
+            <div class="row pl-2 pr-2">
+                <div *ngFor="let p of products" class="col-md-6 col-lg-3 p-2">
+                    <div class="product-item p-2 pm-light-bg" routerLink="product/1">
+                        <div class="pic mb-2">
+                            <img class="mh-100 mw-100" [src]="config.FileUrl + p.main_picture">
+                        </div>
+                        <div class="name">{{p.name}}</div>
+                        <div class="price txt-red mt-2">฿{{p.price | number: '1.2-2' }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-2">
+            <h4>BEST SELLERS</h4>
+            <div class="row pl-2 pr-2">
+                <div *ngFor="let p of products" class="col-md-6 col-lg-3 p-2">
+                    <div class="product-item p-2 pm-light-bg" routerLink="product/1">
+                        <div class="pic mb-2">
+                            <img class="mh-100 mw-100" [src]="config.FileUrl + p.main_picture">
+                        </div>
+                        <div class="name">{{p.name}}</div>
+                        <div class="price txt-red mt-2">฿{{p.price | number: '1.2-2' }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

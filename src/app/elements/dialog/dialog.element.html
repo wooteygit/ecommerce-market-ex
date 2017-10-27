@@ -1,0 +1,13 @@
+<div class="dialog-overlay d-flex v-center h-center">
+    <div class="dialog d-flex flex-column">
+        <div class="dialog-header">
+            <ng-content select="dialog-title"></ng-content>
+        </div>
+        <div class="dialog-body">
+            <ng-content select="dialog-body"></ng-content>
+        </div>
+        <div class="dialog-footer text-right">
+            <ng-content select="dialog-footer"></ng-content>
+        </div>
+    </div>
+</div>

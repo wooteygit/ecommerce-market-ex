@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="d-flex justify-content-end v-center">
+        <h4 class="mr-auto">Order</h4>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table mt-3">
+                <thead>
+                    <tr>
+                        <th class="text-center">Order No</th>
+                        <th class="text-center">Date</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Summary</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let o of orders">
+                        <td class="text-center"><a routerLink="/account/order/{{o.no}}">{{o.no}}</a></td>
+                        <td class="text-center">{{o.order_date | date: 'dd/MM/yyyy HH:mm'}}</td>
+                        <td class="text-center">{{o.status.name}}</td>
+                        <td class="text-center">{{o.total_qty}} items - ฿ {{o.total_price | number: '1.2-2'}}</td>
+                        <td class="d-flex text-center">
+                            <a routerLink="/">Edit</a>
+                            <div class="pl-2 pr-2">|</div>
+                            <a routerLink="/">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "outDir": "../out-tsc/app",
+        "module": "es2015",
+        "sourceMap": true,
+        "baseUrl": "src",
+        "declaration": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "types": []
+    },
+    "exclude": [
+        "server.ts",
+        "test.ts",
+        "**/*.spec.ts"
+    ]
+}

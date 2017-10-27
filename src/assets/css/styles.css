@@ -1,0 +1,68 @@
+body {
+    color: #212121;
+    background-color: #f3f3f3;
+    font-size: .9rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ddd;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    background-color: #ddd;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #999;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+header {
+    height: 120px;
+}
+
+main {
+    min-height: 350px;
+    background-color: #fff;
+    position: relative;
+}
+
+footer {
+    background-color: #212121;
+    text-align: center;
+    padding: 1rem;
+    color: #fff;
+}
+
+.sidebar {
+    width: 250px;
+}
+
+.product-item {
+    cursor: pointer;
+}
+
+.product-item .pic {
+    height: 10rem;
+    background-color: #f3f3f3;
+    text-align: center;
+}
+
+.product-item .name {
+    overflow: hidden;
+    word-wrap: break-word;
+    line-height: 1.2rem;
+    height: 2.4rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.product-item .price {
+    line-height: 1.2rem;
+}

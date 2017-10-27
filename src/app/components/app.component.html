@@ -1,0 +1,24 @@
+<div class="container p-0">
+    <header class="p-4 pm-bg d-flex justify-content-end v-center">
+        <h1 class="text-white mb-0 mr-auto">{{appName}}</h1>
+        <div class="d-flex v-center text-white" routerLink="/checkout">
+            <i class="material-icons md-32">shopping_cart</i>
+            <span class="ml-2 cart-count">({{cartService.totalQty}})</span>
+        </div>
+    </header>
+    <ul class="nav pm-dark-bg justify-content-start">
+        <li>
+            <a class="d-block p-2 pl-3 pr-3 text-white" routerLink="/">Home</a>
+        </li>
+        <li *ngIf="authenService.user == null" class="ml-auto">
+            <a class="d-block p-2 pl-3 pr-3 text-white" routerLink="/login">Login</a>
+        </li>
+        <li *ngIf="authenService.user != null" class="ml-auto">
+            <a class="d-block p-2 pl-3 pr-3 text-white" routerLink="/account">{{authenService.user.first_name}} {{authenService.user.last_name}}</a>
+        </li>
+    </ul>
+    <main class="pt-3 pb-3">
+        <router-outlet></router-outlet>
+    </main>
+</div>
+<footer>{{year}}</footer>

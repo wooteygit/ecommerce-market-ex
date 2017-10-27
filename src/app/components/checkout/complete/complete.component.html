@@ -1,0 +1,78 @@
+<div class="container mt-3">
+    <div class="row justify-content-md-center">
+        <div class="col-md-8 text-center">
+            <h3 class="text-success"><i class="material-icons">check_circle</i> Order complete. Thank your for your order.</h3>
+        </div>
+        <div class="col-md-8">
+            <div class="container mt-3 pm-border">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="p-2 text-center">
+                            <label class="txt-small font-weight-bold">Order No</label>
+                            <div>{{order.no}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-2 text-center">
+                            <label class="txt-small font-weight-bold">Date</label>
+                            <div>{{order.order_date | date: 'dd/MM/yyyy HH:mm'}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-2 text-center">
+                            <label class="txt-small font-weight-bold">Status</label>
+                            <div>{{order.status.name}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-2 text-center">
+                            <label class="txt-small font-weight-bold">Summary</label>
+                            <div>{{order.total_qty}} items - ฿ {{order.total_price | number: '1.2-2'}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container pm-border mt-3 pt-3 pb-3">
+                <h6 class="mb-3">Delivery Address</h6>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="mb-1">{{order.delivery_address.first_name}} {{order.delivery_address.last_name}}</div>
+                        <div>{{order.delivery_address.full_address}}</div>
+                        <div class="mt-1">{{order.delivery_address.telephone}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="container pm-border mt-3 pt-3 pb-3">
+                <h6 class="mb-3">Order Summary</h6>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Product</th>
+                                    <th class="text-center" style="width: 50px">Qty</th>
+                                    <th class="text-center" style="width: 200px">Total Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let c of cartService.products">
+                                    <td class="align-middle">{{c.product.name}}</td>
+                                    <td class="text-center align-middle">{{c.qty}}</td>
+                                    <td class="text-center align-middle">฿ {{c.product.price * c.qty | number: '1.2-2'}}</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td class="text-center align-middle">
+                                        <span class="text-black-secondary pr-3">Total:</span><span class="txt-5">฿ {{cartService.totalPrice | number: '1.2-2'}}</span>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

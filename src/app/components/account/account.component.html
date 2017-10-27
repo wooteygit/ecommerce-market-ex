@@ -1,0 +1,27 @@
+<div class="d-flex flex-row">
+    <div class="sidebar ml-3">
+        <div class="pm-light-bg">
+            <h6 class="p-2 mb-0">My Account</h6>
+            <ul class="list-unstyled">
+                <li>
+                    <a class="d-block p-2" routerLink="/account">Order</a>
+                </li>
+                <li>
+                    <a class="d-block p-2" routerLink="/account/address">Address</a>
+                </li>
+                <li>
+                    <a class="d-block p-2" routerLink="/account/setting">Setting</a>
+                </li>
+                <li>
+                    <a class="d-block p-2" routerLink="/open-shop">Open Shop</a>
+                </li>
+                <li>
+                    <a class="d-block p-2" href="javascript:void(0)" (click)="logOut()">Log Out</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="w-100">
+        <router-outlet></router-outlet>
+    </div>
+</div>

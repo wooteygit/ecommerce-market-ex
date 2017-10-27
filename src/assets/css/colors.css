@@ -1,0 +1,29 @@
+/*
+DARK PRIMARY COLOR: #0288D1
+PRIMARY COLOR: #03A9F4
+LIGHT PRIMARY COLOR: #B3E5FC
+ACCENT COLOR: #00BCD4
+PRIMARY TEXT: #212121
+SECONDARY TEXT: #757575
+DIVIDER COLOR: #BDBDBD
+*/
+
+.pm-dark-bg {
+    background-color: #0288D1;
+}
+
+.pm-light-bg {
+    background-color: #B3E5FC;
+}
+
+.pm-bg {
+    background-color: #03A9F4;
+}
+
+.txt-red {
+    color: #D32F2F;
+}
+
+.txt-green {
+    color: #388E3C;
+}
